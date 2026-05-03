@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import gamesRouter from '../modules/games/teams.routes.js';
+import gamesRouter from '../modules/games/games.routes.js';
 
 const indexRouter = Router();
 

@@ -1,4 +1,4 @@
-import teamsService from './games.service.js';
+import gamesService from './games.service.js';
 
 const gamesController = {};
 
@@ -32,5 +32,16 @@ gamesController.addGame = (req, res) => {
     })
 
 }
+
+gamesController.deleteGame = (req, res) => {
+    const idGame = req.params.idGame;
+    const game = gamesService.deleteGame(idGame);
+    
+    res.status(200).send({
+        msg: "The game was deleted from the catalog successfully :)", 
+        game: game
+    })
+}
+
 
 export default gamesController;

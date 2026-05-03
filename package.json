@@ -2,10 +2,18 @@
   "name": "taller-de-pow",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/PabloMorillo908/Taller-de-POW-Pablo-Morillo#readme",
+  "bugs": {
+    "url": "https://github.com/PabloMorillo908/Taller-de-POW-Pablo-Morillo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloMorillo908/Taller-de-POW-Pablo-Morillo.git"
+  },
   "license": "ISC",
   "author": "",
+  "type": "module",
   "main": "index.js",
-  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

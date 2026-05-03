@@ -28,4 +28,13 @@ gamesService.addGame = (name, playersMinMax, gameDuration, gameDate, gameState) 
     return NewGame;
 }
 
+gamesService.deleteGame = (id) => {
+    for (let i = 0; i < games.length; i++) {
+        if (games[i].id == id) {
+            return games.splice(i, 1)[0];
+        }
+    }
+    return null;
+}
+
 export default gamesService;
