@@ -14,14 +14,14 @@ gamesService.getGame = (id) => {
     return null;
 }
 
-gamesService.addGame = (name, playersMinMax, gameDuration, gameDate, gameState) => {
+gamesService.addGame = (name, playersMinMax, gameDuration, gameDate, gameCondition) => {
     const NewGame  = {
         id: counterID,
         name: name,
         playersMinMax: playersMinMax,
         gameDuration: gameDuration,
         gameDate: gameDate,
-        gameState: gameState
+        gameCondition: gameCondition
     }
     counterID++;
     games.push(NewGame);
@@ -32,6 +32,19 @@ gamesService.deleteGame = (id) => {
     for (let i = 0; i < games.length; i++) {
         if (games[i].id == id) {
             return games.splice(i, 1)[0];
+        }
+    }
+    return null;
+}
+
+gamesService.patchGame = (id, name, playersMinMax, gameDate, gameCondition) => {
+    for (let game of games) {
+        if (game.id == id) {
+            if (name) game.name = name;
+            if (playersMinMax) game.playersMinMax = playersMinMax;
+            if (gameDate) game.gameDate = gameDate;
+            if (gameCondition) game.gameCondition = gameCondition;
+            return game;
         }
     }
     return null;

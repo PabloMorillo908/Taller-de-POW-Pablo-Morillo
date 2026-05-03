@@ -22,9 +22,9 @@ gamesController.addGame = (req, res) => {
     const playersMinMax = req.body.playersMinMax;
     const gameDuration = req.body.gameDuration;
     const gameDate = req.body.gameDate;
-    const gameState = req.body.gameState;
+    const gameCondition = req.body.gameCondition;
 
-    const game = gamesService.addGame(name, playersMinMax, gameDuration, gameDate, gameState);
+    const game = gamesService.addGame(name, playersMinMax, gameDuration, gameDate, gameCondition);
 
     res.status(200).send({
         msg: "Done :)", 
@@ -39,6 +39,20 @@ gamesController.deleteGame = (req, res) => {
     
     res.status(200).send({
         msg: "The game was deleted from the catalog successfully :)", 
+        game: game
+    })
+}
+
+gamesController.patchGame = (req, res) => {
+    const idGame = req.params.idGame;
+    const name = req.body.name;
+    const playersMinMax = req.body.playersMinMax;
+    const gameDate = req.body.gameDate;
+    const gameCondition = req.body.gameCondition;
+    const game = gamesService.patchGame(idGame, name, playersMinMax, gameDate, gameCondition);
+
+    res.status(200).send({  
+        msg: "The game was patched successfully :)", 
         game: game
     })
 }
